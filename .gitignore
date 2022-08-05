@@ -7,3 +7,5 @@ __pycache__/
 
 # Testing
 .pytest_cache/
+
+database.sqlite
