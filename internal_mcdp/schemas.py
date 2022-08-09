@@ -1,10 +1,10 @@
-from pydantic import BaseModel, StrictStr
+from pydantic import BaseModel
 
 
 class Profile(BaseModel):
-    email: StrictStr
-    name: StrictStr
-    contact: StrictStr
+    email: str
+    name: str
+    contact: str
 
     class Config:
         orm_mode = True

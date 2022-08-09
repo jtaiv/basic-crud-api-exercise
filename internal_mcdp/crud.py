@@ -12,7 +12,10 @@ def get_profile_by_name(db: Session, name: str):
 
 
 def get_profiles(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.Profile).offset(skip).limit(limit).all()
+    results = db.query(models.Profile).offset(skip).limit(limit).all()
+    return [
+        schemas.Profile(email=res.email, name=res.name, contact=res.contact) for res in results
+    ]
 
 
 def create_profile(db: Session, profile: schemas.Profile):
